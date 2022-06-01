@@ -6,29 +6,26 @@ canvas.height = 600;
 context.fillRect(0, 0, canvas.width, canvas.height)
 const gravity = 0.7;
 class Sprite {
-    constructor({ position, velocity,color }) {
+    constructor({ position, velocity }) {
         this.position = position;
         this.velocity = velocity;
         this.height = 150;
         this.lastkey,
         this.attackBox={
               position : this.position,
-              height:50,
-              width:100
-        },
-        this.color = color
-
+              heigh:100,
+              width:50
+        }
     }
 
     draw() {
-        context.fillStyle = this.color;
-        context.fillRect(this.position.x, this.position.y, 50, this.height);
-        context.fillStyle = "green";
-        context.fillRect(this.attackBox.position.x,this.attackBox.position.y,this.attackBox.width,this.attackBox.height);
+        context.fillStyle = "red";
+        context.fillRect(this.position.x, this.position.y, 100, this.height);
+
     }
     drawAttackBox(){
-        context.fillStyle = "green";
-        context.fillRect(this.attackBox.position.x,this.attackBox.position.y,this.attackBox.width+20,this.attackBox.height);
+        context.fillRect = "green";
+        context.fillRect(this.attackBox.position.position.x,this.attackBox.position.position.y,this.attackBox.width,this.attackBox.heigh);
     }
     update() {
         this.draw();
@@ -51,9 +48,7 @@ const hero = new Sprite({
     velocity: {
         x: 0,
         y: 0
-    },
-    color:"blue"
-    
+    }
 }
 );
 const villain = new Sprite({
@@ -64,9 +59,7 @@ const villain = new Sprite({
     velocity: {
         x: 0,
         y: 0
-    },
-    color:"red"
-    
+    }
 })
 
 animate = () => {
@@ -74,10 +67,9 @@ animate = () => {
 
     context.fillStyle = "black";
     context.fillRect(0, 0, canvas.width, canvas.height);
-
     hero.update();
     villain.update();
-   
+
     hero.velocity.x = 0;
     villain.velocity.x = 0;
     if (keys.a.pressed && hero.lastkey === 'a') {
@@ -101,9 +93,6 @@ const keys = {
     w: {
         pressed: false
     },
-    space: {
-        pressed: false
-    },
     ArrowRight: {
         pressed: false
     },
@@ -119,7 +108,6 @@ let lastkey
 animate()
 
 window.addEventListener('keydown', (event) => {
-    console.log(event.key)
     switch (event.key) {
         case 'd':
             keys.d.pressed = true;
@@ -141,15 +129,6 @@ window.addEventListener('keydown', (event) => {
             break
     }
     switch (event.key) {
-        case ' ':
-            keys.space.pressed = true;
-
-            hero.lastkey = 'space';
-            hero.drawAttackBox();
-            break
-    }
-
-    switch (event.key) {
         case 'ArrowRight':
             keys.ArrowRight.pressed = true;
             villain.lastkey = 'ArrowRight';
@@ -167,7 +146,6 @@ window.addEventListener('keydown', (event) => {
             villain.lastkey = 'ArrowLeft';
             break
     }
-
 })
 window.addEventListener('keyup', (event) => {
     switch (event.key) {
