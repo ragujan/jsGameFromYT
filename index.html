@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="position: relative;display: inline-block;">
+        <div style="position: absolute;display:flex ;width: 100%;align-items:center ;padding: 40px;">
+            <!--player health-->
+            <div style="width:100%;height: 30px;position: relative;display: flex;justify-content: flex-end;">
+                <div style="background-color: rgb(255, 242, 0);height: 30px;width: 100%;"></div>
+                <div id="playerHealth"
+                    style="position: absolute;background-color: blue;width: 100%;height: 30px;top: 0;"></div>
+            </div>
+            <!--timer-->
+            <div id="timer"
+                style="justify-content: center; background-color: rgb(255, 0, 0);width:100px;height: 50px;flex-shrink: 0;display: flex;align-items: center;">
+                <h1>60</h1>
+            </div>
+            <!--enemy health-->
+            <div style="width:100%;height: 30px;position: relative;">
+                <div style="background-color: rgb(255, 242, 0);height: 30px;"></div>
+                <div id="enemyHealth"
+                    style="position: absolute;background-color: blue;width: 100%;height: 30px;top: 0;"></div>
+            </div>
+        </div>
+        <div id="tieDiv"
+            style="z-index: 10000; position: absolute;color: white;display: flex;justify-content: center;align-items: center;top: 0;left: 0;bottom: 0;right: 0;">
+            </div>
+        <canvas></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
