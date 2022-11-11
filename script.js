@@ -10,53 +10,7 @@ let timer = 10;
 let timerId ;
 
 context.fillRect(0, 0, canvas.width, canvas.height)
-class Sprite2 {
-    constructor({ position, velocity, color }) {
-        this.position = position
-        this.velocity = velocity
-        this.height = 150
-        this.width = 50
-        this.lastKey
-        this.attackBox = {
-            position: this.position,
-            width: 100,
-            height: 20
-        }
-        this.color = color
-        this.isAttacking
 
-    }
-
-    draw() {
-        context.fillStyle = this.color
-        context.fillRect(this.position.x, this.position.y, this.width, this.height);
-
-        //attack box 
-        context.fillStyle = 'green'
-        context.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height)
-
-    }
-    update() {
-        this.draw()
-
-        this.position.x += this.velocity.x;
-        this.position.y += this.velocity.y;
-
-        if (this.position.y + this.height >= canvas.height) {
-
-            this.velocity.y = 0;
-        } else {
-            this.velocity.y += gravity;
-        }
-    }
-
-    attack() {
-        this.isAttacking = true;
-        setTimeout(() => {
-            this.isAttacking = false
-        }, 100)
-    }
-}
 
 class Sprite {
     constructor({ position, velocity, color, offset }) {
